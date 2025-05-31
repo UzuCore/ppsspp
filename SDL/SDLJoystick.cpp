@@ -24,7 +24,7 @@ SDLJoystick::SDLJoystick(bool init_SDL ) : registeredAsEventHandler(false) {
 		SDL_Init(SDL_INIT_JOYSTICK | SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER);
 	}
 
-	const char *dbPath = "gamecontrollerdb.txt";
+	const char *dbPath = "/storage/.config/SDL-GameControllerDB/gamecontrollerdb.txt";
 	INFO_LOG(Log::System, "loading control pad mappings from %s:", dbPath);
 
 	size_t size;
@@ -33,7 +33,7 @@ SDLJoystick::SDLJoystick(bool init_SDL ) : registeredAsEventHandler(false) {
 		SDL_RWops *rw = SDL_RWFromConstMem(mappingData, size);
 		// 1 to free the rw after use
 		if (SDL_GameControllerAddMappingsFromRW(rw, 1) == -1) {
-			ERROR_LOG(Log::System, "Failed to read mapping data - corrupt?");
+			//ERROR_LOG(Log::System, "Failed to read mapping data - corrupt?");
 		}
 		delete[] mappingData;
 	} else {
