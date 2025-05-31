@@ -1151,7 +1151,7 @@ void Config::UpdateIniLocation(const char *iniFileName, const char *controllerIn
 	const bool useIniFilename = iniFileName != nullptr && strlen(iniFileName) > 0;
 	const char *ppssppIniFilename = IsVREnabled() ? "ppssppvr.ini" : "ppsspp.ini";
 	bool exists;
-	iniFilename_ = FindConfigFile(useIniFilename ? iniFileName : ppssppIniFilename, &exists);
+	iniFilename_ = Path("/storage/.config/ppsspp/PSP/SYSTEM") / ppssppIniFilename;
 	const bool useControllerIniFilename = controllerIniFilename != nullptr && strlen(controllerIniFilename) > 0;
 	const char *controlsIniFilename = IsVREnabled() ? "controlsvr.ini" : "controls.ini";
 	controllerIniFilename_ = FindConfigFile(useControllerIniFilename ? controllerIniFilename : controlsIniFilename, &exists);
