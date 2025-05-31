@@ -1473,9 +1473,9 @@ void Config::PostLoadCleanup(bool gameSpecific) {
 	}
 
 	// Automatically silence secondary instances. Could be an option I guess, but meh.
-	if (PPSSPP_ID > 1) {
-		g_Config.iGameVolume = 0;
-	}
+	//if (PPSSPP_ID > 1) {
+	//	g_Config.iGameVolume = 0;
+	//}
 
 	// Automatically switch away from deprecated setting value.
 	if (iTexScalingLevel <= 0) {
